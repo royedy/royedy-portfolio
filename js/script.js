@@ -5,9 +5,7 @@ function App() {
   const [selectedId, setSelectedId] = useState(null); 
   const [hoveredIndex, setHoveredIndex] = useState(null); 
   const [mouseX, setMouseX] = useState(null); 
-  // 🌟 모달 창을 열고 닫는 마법의 스위치 상태 추가
   const [isAboutOpen, setIsAboutOpen] = useState(false); 
-  
   const itemRefs = useRef([]); 
   const scrollContainerRef = useRef(null); 
 
@@ -50,20 +48,23 @@ function App() {
     <div className="relative min-h-screen flex flex-col"> 
       <style>{`
         .hide-scroll::-webkit-scrollbar { display: none; }
-        /* 모달이 부드럽게 나타나도록 애니메이션 추가 */
         .fade-in { animation: fadeIn 0.3s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* 🌟 수정 1: 모바일에서 상세 뷰 진입 시 텍스트를 강제로 날려버리는 철통 CSS */
+        @media (max-width: 768px) {
+          .hide-on-mobile-detail { display: none !important; }
+        }
       `}</style>
 
-      {/* 🌟 ABOUT 모달 컴포넌트 추가 */}
       {isAboutOpen && (
         <div 
           className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 backdrop-blur-sm fade-in pointer-events-auto"
-          onClick={() => setIsAboutOpen(false)} /* 배경 클릭 시 닫힘 */
+          onClick={() => setIsAboutOpen(false)}
         >
           <div 
             className="flex flex-col items-center justify-center p-12 md:p-16 border border-white/20 bg-black max-w-lg w-11/12"
-            onClick={(e) => e.stopPropagation()} /* 모달 내부 클릭 시 안 닫히게 방어 */
+            onClick={(e) => e.stopPropagation()}
           >
             <p className="text-white text-sm tracking-widest leading-loose text-center font-light mb-10">
               This portfolio is continuously being updated.<br />
@@ -79,12 +80,13 @@ function App() {
         </div>
       )}
 
-      <header className="fixed top-0 left-0 right-0 flex justify-between items-center p-8 z-50 mix-blend-difference pointer-events-none"> 
+      {/* 🌟 수정 2: 상세 페이지 열리면 헤더에 hide-on-mobile-detail 클래스 부여 */}
+      <header className={`fixed top-0 left-0 right-0 flex justify-between items-center p-8 z-50 mix-blend-difference pointer-events-none ${selectedId !== null ? 'hide-on-mobile-detail' : ''}`}> 
         <div className="text-2xl font-black tracking-tighter cursor-pointer logo-font pointer-events-auto" onClick={() => setSelectedId(null)}>ROYEDY</div> 
         {selectedId === null && ( 
           <div 
             className="text-sm font-medium tracking-widest cursor-pointer hover:line-through tight-spacing pointer-events-auto"
-            onClick={() => setIsAboutOpen(true)} /* 🌟 클릭 시 모달 열기 */
+            onClick={() => setIsAboutOpen(true)}
           >
             ABOUT
           </div> 
@@ -122,8 +124,22 @@ function App() {
                       height: '35vh', flexShrink: 0, 
                       transform: `translateY(${translateY}px)` 
                     }} 
-                    onMouseEnter={() => setHoveredIndex(index)} 
-                    onClick={() => setSelectedId(project.id)} 
+                    /* 🌟 수정 3: 모바일에서는 Hover 이벤트를 원천 차단하여 터치 꼬임 방지 */
+                    onMouseEnter={() => {
+                      if (window.innerWidth > 768) setHoveredIndex(index);
+                    }} 
+                    /* 🌟 수정 4: 첫 터치는 펼치기, 두 번째 터치는 상세 진입 */
+                    onClick={() => {
+                      if (window.innerWidth <= 768) {
+                        if (hoveredIndex === index) {
+                          setSelectedId(project.id);
+                        } else {
+                          setHoveredIndex(index);
+                        }
+                      } else {
+                        setSelectedId(project.id);
+                      }
+                    }} 
                   > 
                     <img src={project.thumb} className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${hoveredIndex === index ? 'grayscale-0' : 'grayscale'}`} alt={project.title} /> 
                     <div className={`absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity duration-500 ${hoveredIndex === index ? 'opacity-100' : 'opacity-0'}`}> 
@@ -156,7 +172,8 @@ function App() {
         </main> 
       )} 
 
-      <footer className="fixed bottom-0 left-0 right-0 flex justify-between items-end p-8 z-50 mix-blend-difference text-[10px] font-light tight-spacing pointer-events-none"> 
+      {/* 🌟 수정 5: 상세 페이지 열리면 푸터에도 hide-on-mobile-detail 클래스 부여 */}
+      <footer className={`fixed bottom-0 left-0 right-0 flex justify-between items-end p-8 z-50 mix-blend-difference text-[10px] font-light tight-spacing pointer-events-none ${selectedId !== null ? 'hide-on-mobile-detail' : ''}`}> 
         <div className="leading-relaxed pointer-events-auto"> 
           <p>GRAPHIC / TYPOGRAPHY / BRANDING</p> 
           <p>2026 STUDIO RYDY</p> 
