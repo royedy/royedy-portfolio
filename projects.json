@@ -261,5 +261,18 @@
       "./images/d_klaff_05.webp", 
       "./images/d_klaff_06.webp" 
     ] 
+  },
+  { 
+    "id": 23, 
+    "title": "BASEBALL", 
+    "thumb": "./images/t_baseball.webp", 
+    "details": [ 
+      "./images/d_baseball_01.webp", 
+      "./images/d_baseball_02.webp", 
+      "./images/d_baseball_03.webp", 
+      "./images/d_baseball_04.webp", 
+      "./images/d_baseball_05.webp", 
+      "./images/d_baseball_06.webp" 
+    ] 
   }
 ]
