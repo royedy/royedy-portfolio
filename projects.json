@@ -1,0 +1,265 @@
+[
+  { 
+    "id": 0, 
+    "title": "FANTASY", 
+    "thumb": "./images/t_fantasy.webp", 
+    "details": [ 
+      "./images/d_fantasy_01.webp", 
+      "./images/d_fantasy_02.webp", 
+      "./images/d_fantasy_03.webp", 
+      "./images/d_fantasy_04.webp", 
+      "./images/d_fantasy_05.webp", 
+      "./images/d_fantasy_06.webp", 
+      "./images/d_fantasy_07.webp" 
+    ] 
+  }, 
+  { 
+    "id": 1, 
+    "title": "WEZAG", 
+    "thumb": "./images/t_wezag.webp", 
+    "details": [ 
+      "./images/d_wezag_01.webp", 
+      "./images/d_wezag_02.webp", 
+      "./images/d_wezag_03.webp", 
+      "./images/d_wezag_04.webp", 
+      "./images/d_wezag_05.webp" 
+    ] 
+  }, 
+  { 
+    "id": 2, 
+    "title": "SUMMER OF MY LILFE", 
+    "thumb": "./images/t_summer.webp", 
+    "details": [ 
+      "./images/d_summer_01.webp", 
+      "./images/d_summer_02.webp", 
+      "./images/d_summer_03.webp", 
+      "./images/d_summer_04.webp", 
+      "./images/d_summer_05.webp" 
+    ] 
+  },
+  { 
+    "id": 3, 
+    "title": "MADE BY", 
+    "thumb": "./images/t_madeby.webp", 
+    "details": [ 
+      "./images/d_madeby_01.webp", 
+      "./images/d_madeby_02.webp", 
+      "./images/d_madeby_03.webp", 
+      "./images/d_madeby_04.webp", 
+      "./images/d_madeby_05.webp", 
+      "./images/d_madeby_06.webp", 
+      "./images/d_madeby_07.webp" 
+    ] 
+  },
+  { 
+    "id": 4, 
+    "title": "PUNK FIGHTERZ", 
+    "thumb": "./images/t_punkfighterz.webp", 
+    "details": [ 
+      "./images/d_punkfighterz_01.webp", 
+      "./images/d_punkfighterz_02.webp", 
+      "./images/d_punkfighterz_03.webp", 
+      "./images/d_punkfighterz_04.webp", 
+      "./images/d_punkfighterz_05.webp" 
+    ] 
+  },
+  { 
+    "id": 5, 
+    "title": "VAIOLET CITY : BLACK OUT", 
+    "thumb": "./images/t_valentiz.webp", 
+    "details": [ 
+      "./images/d_valentiz_01.webp", 
+      "./images/d_valentiz_02.webp", 
+      "./images/d_valentiz_03.webp", 
+      "./images/d_valentiz_04.webp", 
+      "./images/d_valentiz_05.webp" 
+    ] 
+  }, 
+  { 
+    "id": 6, 
+    "title": "FONT DESIGN(A)", 
+    "thumb": "./images/t_font_a.webp", 
+    "details": [ 
+      "./images/d_font_a_01.webp", 
+      "./images/d_font_a_02.webp", 
+      "./images/d_font_a_03.webp", 
+      "./images/d_font_a_04.webp", 
+      "./images/d_font_a_05.webp", 
+      "./images/d_font_a_06.webp" 
+    ] 
+  }, 
+  { 
+    "id": 7, 
+    "title": "DESCENDING FLIGHT", 
+    "thumb": "./images/t_df.webp", 
+    "details": [ 
+      "./images/d_df_01.webp", 
+      "./images/d_df_02.webp", 
+      "./images/d_df_03.webp" 
+    ] 
+  }, 
+  { 
+    "id": 8, 
+    "title": "GREEN ON RED", 
+    "thumb": "./images/t_greenonred.webp", 
+    "details": [ 
+      "./images/d_greenonred_01.webp", 
+      "./images/d_greenonred_02.webp" 
+    ] 
+  },
+  { 
+    "id": 9, 
+    "title": "I CAN'T LET IT GO", 
+    "thumb": "./images/t_icant.webp", 
+    "details": [ 
+      "./images/d_icant_01.webp", 
+      "./images/d_icant_02.webp", 
+      "./images/d_icant_03.webp", 
+      "./images/d_icant_04.webp", 
+      "./images/d_icant_05.webp" 
+    ] 
+  },
+  { 
+    "id": 10, 
+    "title": "A FLOWER WITHOUT A NAME", 
+    "thumb": "./images/t_flower.webp", 
+    "details": [ 
+      "./images/d_flower_01.webp", 
+      "./images/d_flower_02.webp", 
+      "./images/d_flower_03.webp", 
+      "./images/d_flower_04.webp" 
+    ] 
+  }, 
+  { 
+    "id": 11, 
+    "title": "OROCK!", 
+    "thumb": "./images/t_orock.webp", 
+    "details": [
+      "./images/d_orock_01.webp",
+      "./images/d_orock_02.webp",
+      "./images/d_orock_03.webp",
+      "./images/d_orock_04.webp"
+    ] 
+  }, 
+  { 
+    "id": 12, 
+    "title": "VALENTINE", 
+    "thumb": "./images/t_valentine.webp", 
+    "details": [ 
+      "./images/d_valentine_01.webp", 
+      "./images/d_valentine_02.webp", 
+      "./images/d_valentine_03.webp" 
+    ] 
+  }, 
+  { 
+    "id": 13, 
+    "title": "GRANT ME YOUR FAVOR", 
+    "thumb": "./images/t_grant.webp", 
+    "details": [ 
+      "./images/d_grant_01.webp", 
+      "./images/d_grant_02.webp", 
+      "./images/d_grant_03.webp", 
+      "./images/d_grant_04.webp" 
+    ] 
+  }, 
+  { 
+    "id": 14, 
+    "title": "OROCK YOUTUBE CHANNEL", 
+    "thumb": "./images/t_orockyoutube.webp", 
+    "details": [ 
+      "./images/d_orockyoutube_01.webp", 
+      "./images/d_orockyoutube_02.webp", 
+      "./images/d_orockyoutube_03.webp" 
+    ] 
+  },
+  { 
+    "id": 15, 
+    "title": "HOPEFULNESS", 
+    "thumb": "./images/t_hopefulness.webp", 
+    "details": [ 
+      "./images/d_hopefulness_01.webp", 
+      "./images/d_hopefulness_02.webp", 
+      "./images/d_hopefulness_03.webp" 
+    ] 
+  },
+  { 
+    "id": 16, 
+    "title": "trap", 
+    "thumb": "./images/t_trap.webp", 
+    "details": [ 
+      "./images/d_trap_01.webp", 
+      "./images/d_trap_02.webp", 
+      "./images/d_trap_03.webp" 
+    ] 
+  },
+  { 
+    "id": 17, 
+    "title": "CHEONDUNGORI", 
+    "thumb": "./images/t_cheondungori.webp", 
+    "details": [ 
+      "./images/d_cheondungori_01.webp", 
+      "./images/d_cheondungori_02.webp", 
+      "./images/d_cheondungori_03.webp", 
+      "./images/d_cheondungori_04.webp" 
+    ] 
+  },
+  { 
+    "id": 18, 
+    "title": "ALLIED VOICES : PHASE DISTORTION", 
+    "thumb": "./images/t_allied.webp", 
+    "details": [ 
+      "./images/d_allied_01.webp", 
+      "./images/d_allied_02.webp", 
+      "./images/d_allied_03.webp" 
+    ] 
+  },
+  { 
+    "id": 19, 
+    "title": "ONE WAY STREET", 
+    "thumb": "./images/t_peachkyte.webp", 
+    "details": [ 
+      "./images/d_peachkyte_01.webp", 
+      "./images/d_peachkyte_02.webp", 
+      "./images/d_peachkyte_03.webp", 
+      "./images/d_peachkyte_04.webp" 
+    ] 
+  },
+  { 
+    "id": 20, 
+    "title": "QUIRE", 
+    "thumb": "./images/t_quire.webp", 
+    "details": [ 
+      "./images/d_quire_01.webp", 
+      "./images/d_quire_02.webp", 
+      "./images/d_quire_03.webp", 
+      "./images/d_quire_04.webp", 
+      "./images/d_quire_05.webp", 
+      "./images/d_quire_06.webp" 
+    ] 
+  },
+  { 
+    "id": 21, 
+    "title": "AMNESIA", 
+    "thumb": "./images/t_amnesia.webp", 
+    "details": [ 
+      "./images/d_amnesia_01.webp", 
+      "./images/d_amnesia_02.webp", 
+      "./images/d_amnesia_03.webp", 
+      "./images/d_amnesia_04.webp", 
+      "./images/d_amnesia_05.webp" 
+    ] 
+  },
+  { 
+    "id": 22, 
+    "title": "KLAFF", 
+    "thumb": "./images/t_klaff.webp", 
+    "details": [ 
+      "./images/d_klaff_01.webp", 
+      "./images/d_klaff_02.webp", 
+      "./images/d_klaff_03.webp", 
+      "./images/d_klaff_04.webp", 
+      "./images/d_klaff_05.webp", 
+      "./images/d_klaff_06.webp" 
+    ] 
+  }
+]

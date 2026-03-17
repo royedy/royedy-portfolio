@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'CastleBegale';
+    src: url('../fonts/Castle Begale.otf') format('opentype');
+    font-weight: normal; font-style: normal;
+}
+@font-face {
+    font-family: 'Shinkosans';
+    src: url('../fonts/ShinkosansRegular-8OO50.otf') format('opentype');
+    font-weight: normal; font-style: normal;
+}
+
+body { 
+    background-color: #0b0b0b; margin: 0; color: white; 
+    font-family: 'Shinkosans', sans-serif; overflow-x: hidden; 
+}
+
+/* transition을 0.3s로 단축하여 반응성을 높임 */
+.accordion-item { transition: all 0.3s ease-out; }
+
+::-webkit-scrollbar { width: 0px; }
+.logo-font { font-family: 'CastleBegale', serif; letter-spacing: 0.03em; }
+.tight-spacing { letter-spacing: -0.05em; }
+
+.project-title {
+    font-family: 'Shinkosans', sans-serif;
+    font-size: 1.5rem; letter-spacing: -0.05em;
+    text-transform: uppercase; pointer-events: none;
+}
+
+.fade-enter { animation: fadeIn 0.8s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
