@@ -6,6 +6,11 @@ function App() {
   const [hoveredIndex, setHoveredIndex] = useState(null); 
   const [mouseX, setMouseX] = useState(null); 
   const [isAboutOpen, setIsAboutOpen] = useState(false); 
+  
+  // 🌟 스와이프 제스처를 위한 상태 추가
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchEndX, setTouchEndX] = useState(0);
+
   const itemRefs = useRef([]); 
   const scrollContainerRef = useRef(null); 
 
@@ -36,6 +41,31 @@ function App() {
   const handleMouseMove = (e) => { setMouseX(e.clientX); }; 
   const handleMouseLeaveGrid = () => { setMouseX(null); setHoveredIndex(null); }; 
 
+  // 🌟 스와이프 터치 이벤트 핸들러 추가
+  const handleTouchStart = (e) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    
+    // 손가락이 왼쪽에서 오른쪽으로 이동한 거리 계산
+    const swipeDistance = touchEndX - touchStartX;
+    
+    // 이동 거리가 70px 이상이고, 모바일 화면(768px 이하)일 때만 작동
+    if (swipeDistance > 70 && window.innerWidth <= 768) {
+      setSelectedId(null); // 뒤로 가기(메인 갤러리로) 실행!
+    }
+    
+    // 다음 스와이프를 위해 좌표 초기화
+    setTouchStartX(0);
+    setTouchEndX(0);
+  };
+
   if (projects.length === 0) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-black text-white text-xs tracking-[0.3em] font-light">
@@ -50,8 +80,6 @@ function App() {
         .hide-scroll::-webkit-scrollbar { display: none; }
         .fade-in { animation: fadeIn 0.3s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        
-        /* 🌟 수정 1: 모바일에서 상세 뷰 진입 시 텍스트를 강제로 날려버리는 철통 CSS */
         @media (max-width: 768px) {
           .hide-on-mobile-detail { display: none !important; }
         }
@@ -80,7 +108,6 @@ function App() {
         </div>
       )}
 
-      {/* 🌟 수정 2: 상세 페이지 열리면 헤더에 hide-on-mobile-detail 클래스 부여 */}
       <header className={`fixed top-0 left-0 right-0 flex justify-between items-center p-8 z-50 mix-blend-difference pointer-events-none ${selectedId !== null ? 'hide-on-mobile-detail' : ''}`}> 
         <div className="text-2xl font-black tracking-tighter cursor-pointer logo-font pointer-events-auto" onClick={() => setSelectedId(null)}>ROYEDY</div> 
         {selectedId === null && ( 
@@ -124,11 +151,9 @@ function App() {
                       height: '35vh', flexShrink: 0, 
                       transform: `translateY(${translateY}px)` 
                     }} 
-                    /* 🌟 수정 3: 모바일에서는 Hover 이벤트를 원천 차단하여 터치 꼬임 방지 */
                     onMouseEnter={() => {
                       if (window.innerWidth > 768) setHoveredIndex(index);
                     }} 
-                    /* 🌟 수정 4: 첫 터치는 펼치기, 두 번째 터치는 상세 진입 */
                     onClick={() => {
                       if (window.innerWidth <= 768) {
                         if (hoveredIndex === index) {
@@ -152,7 +177,13 @@ function App() {
           </div> 
         </main> 
       ) : ( 
-        <main className="flex-grow flex flex-col items-center pt-32 pb-32 fade-enter relative"> 
+        /* 🌟 상세 뷰 <main> 태그에 터치 이벤트 핸들러 장착 */
+        <main 
+          className="flex-grow flex flex-col items-center pt-32 pb-32 fade-enter relative"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        > 
           <div className="w-full flex flex-col relative" style={{ maxWidth: '1200px' }}> 
             <div className="sticky top-10 z-[100] w-full h-0 flex justify-end pointer-events-none"> 
               <button 
@@ -172,7 +203,6 @@ function App() {
         </main> 
       )} 
 
-      {/* 🌟 수정 5: 상세 페이지 열리면 푸터에도 hide-on-mobile-detail 클래스 부여 */}
       <footer className={`fixed bottom-0 left-0 right-0 flex justify-between items-end p-8 z-50 mix-blend-difference text-[10px] font-light tight-spacing pointer-events-none ${selectedId !== null ? 'hide-on-mobile-detail' : ''}`}> 
         <div className="leading-relaxed pointer-events-auto"> 
           <p>GRAPHIC / TYPOGRAPHY / BRANDING</p> 
